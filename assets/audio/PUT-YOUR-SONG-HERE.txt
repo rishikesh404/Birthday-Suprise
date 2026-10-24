@@ -1,0 +1,17 @@
+PUT YOUR BACKGROUND SONG HERE
+=============================
+
+1. Copy your music file into THIS folder (assets/audio/).
+2. Keep the file name simple, with no spaces, for example:
+      song.mp3
+   (other names work too, e.g. our-song.ogg or birthday.mp3)
+3. Open data.js in the project root and check the last section
+   called "audio". Make sure "src" points to your file, e.g.:
+      src: "assets/audio/song.mp3"
+
+Tips:
+- MP3 works in every browser. Keep the file small (under 8 MB)
+  so it loads quickly on a phone.
+- The music NEVER starts by itself - she presses the play button.
+- If the file is missing, the play button shows a friendly message
+  instead of breaking the website.

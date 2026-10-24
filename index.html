@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday, My Love</title>
+  <meta name="description" content="A handmade birthday website full of memories, letters and surprises." />
+  <meta name="theme-color" content="#7b2d46" />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- Marks that JavaScript is available so reveal animations only hide content when JS can show it again -->
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+
+  <!-- Dreamy background + floating petals / hearts / sparkles (decorative) -->
+  <div class="backdrop" aria-hidden="true">
+    <div class="backdrop__glow backdrop__glow--a"></div>
+    <div class="backdrop__glow backdrop__glow--b"></div>
+    <div class="backdrop__glow backdrop__glow--c"></div>
+  </div>
+  <div id="floating-field" class="floating-field" aria-hidden="true"></div>
+
+  <!-- Progress + navigation (appears after the hero) -->
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+  <header class="site-nav" id="site-nav">
+    <nav aria-label="Sections of this page">
+      <a href="#welcome">Welcome</a>
+      <a href="#memories">Memories</a>
+      <a href="#letter">Letter</a>
+      <a href="#reasons">Reasons</a>
+      <a href="#surprise">Surprise</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============================ SECTION A — WELCOME ======================= -->
+    <section id="welcome" class="hero reveal" aria-labelledby="hero-title">
+      <img class="hero__lily hero__lily--left" id="hero-lily-left" src="assets/images/lily.svg" alt="" aria-hidden="true" />
+      <img class="hero__lily hero__lily--right" id="hero-lily-right" src="assets/images/lily.svg" alt="" aria-hidden="true" />
+
+      <div class="hero__inner">
+        <p class="hero__kicker" id="hero-kicker">Happy Birthday</p>
+        <div class="hero__divider" aria-hidden="true">
+          <span class="line"></span>
+          <svg class="mini-lily" viewBox="0 0 100 100" aria-hidden="true">
+            <g fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M50 52 C 43.5 43, 42.5 27, 50 12 C 57.5 27, 56.5 43, 50 52 Z" />
+              <path d="M50 52 C 43.5 43, 42.5 27, 50 12 C 57.5 27, 56.5 43, 50 52 Z" transform="rotate(60 50 52)" />
+              <path d="M50 52 C 43.5 43, 42.5 27, 50 12 C 57.5 27, 56.5 43, 50 52 Z" transform="rotate(120 50 52)" />
+              <path d="M50 52 C 43.5 43, 42.5 27, 50 12 C 57.5 27, 56.5 43, 50 52 Z" transform="rotate(180 50 52)" />
+              <path d="M50 52 C 43.5 43, 42.5 27, 50 12 C 57.5 27, 56.5 43, 50 52 Z" transform="rotate(240 50 52)" />
+              <path d="M50 52 C 43.5 43, 42.5 27, 50 12 C 57.5 27, 56.5 43, 50 52 Z" transform="rotate(300 50 52)" />
+            </g>
+            <circle cx="50" cy="52" r="4.5" fill="currentColor" />
+          </svg>
+          <span class="line"></span>
+        </div>
+
+        <h1 class="hero__title" id="hero-title">
+          <span class="hero__happy">Happy Birthday,</span>
+          <span class="hero__name" id="hero-name">[Her Name]</span>
+        </h1>
+
+        <!-- Optional hero photo — hidden until heroPhoto.src is set in data.js -->
+        <figure class="hero__photo" id="hero-photo" hidden>
+          <div class="hero__photo-frame">
+            <img class="hero__photo-img" id="hero-photo-img" alt="" decoding="async" />
+          </div>
+          <figcaption class="hero__photo-caption" id="hero-photo-caption"></figcaption>
+        </figure>
+
+        <p class="hero__intro" id="hero-intro"></p>
+
+        <button type="button" class="btn btn--primary" id="begin-btn">
+          <span id="begin-label">Begin Our Journey</span>
+          <svg viewBox="0 0 24 24" class="btn__arrow" aria-hidden="true">
+            <path d="M12 4v14m0 0l-6-6m6 6l6-6" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+
+        <p class="hero__scroll-hint" aria-hidden="true">scroll gently</p>
+      </div>
+    </section>
+
+    <!-- ========================== SECTION B — OUR MEMORIES ==================== -->
+    <section id="memories" class="section reveal" aria-labelledby="memories-title">
+      <div class="section__head">
+        <p class="section__eyebrow">Chapter One</p>
+        <h2 class="section__title" id="memories-title">Our Memories</h2>
+        <p class="section__subtitle">Little moments that quietly became my favourites.</p>
+      </div>
+
+      <div class="gallery" id="gallery">
+        <div class="gallery__track" id="gallery-track" tabindex="0"
+             aria-label="Photo gallery. Use arrow keys or swipe to move."></div>
+
+        <button type="button" class="gallery__arrow gallery__arrow--prev" id="gallery-prev"
+                aria-label="Previous photo">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"
+            fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button type="button" class="gallery__arrow gallery__arrow--next" id="gallery-next"
+                aria-label="Next photo">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"
+            fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+
+      <p class="gallery__hint">Tap any photo to see it bigger</p>
+    </section>
+
+    <!-- ========================= SECTION C — MY BIRTHDAY LETTER =============== -->
+    <section id="letter" class="section section--letter reveal" aria-labelledby="letter-title">
+      <div class="section__head">
+        <p class="section__eyebrow">Chapter Two</p>
+        <h2 class="section__title" id="letter-title">My Birthday Letter</h2>
+        <p class="section__subtitle">Words I have been saving just for you.</p>
+      </div>
+
+      <article class="letter" aria-label="A letter for you">
+        <span class="letter__tape letter__tape--left" aria-hidden="true"></span>
+        <span class="letter__tape letter__tape--right" aria-hidden="true"></span>
+
+        <div class="letter__ornament" aria-hidden="true">
+          <span class="line"></span>
+          <svg class="mini-lily" viewBox="0 0 100 100">
+            <g fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M50 52 C 43.5 43, 42.5 27, 50 12 C 57.5 27, 56.5 43, 50 52 Z" />
+              <path d="M50 52 C 43.5 43, 42.5 27, 50 12 C 57.5 27, 56.5 43, 50 52 Z" transform="rotate(60 50 52)" />
+              <path d="M50 52 C 43.5 43, 42.5 27, 50 12 C 57.5 27, 56.5 43, 50 52 Z" transform="rotate(120 50 52)" />
+              <path d="M50 52 C 43.5 43, 42.5 27, 50 12 C 57.5 27, 56.5 43, 50 52 Z" transform="rotate(180 50 52)" />
+              <path d="M50 52 C 43.5 43, 42.5 27, 50 12 C 57.5 27, 56.5 43, 50 52 Z" transform="rotate(240 50 52)" />
+              <path d="M50 52 C 43.5 43, 42.5 27, 50 12 C 57.5 27, 56.5 43, 50 52 Z" transform="rotate(300 50 52)" />
+            </g>
+            <circle cx="50" cy="52" r="4.5" fill="currentColor" />
+          </svg>
+          <span class="line"></span>
+        </div>
+
+        <p class="letter__greeting" id="letter-greeting"></p>
+        <div class="letter__body" id="letter-body"></div>
+
+        <div class="letter__closing">
+          <p class="letter__signoff" id="letter-signoff"></p>
+          <p class="letter__signature" id="letter-signature"></p>
+        </div>
+      </article>
+    </section>
+
+    <!-- ======================= SECTION D — REASONS I LOVE YOU ================= -->
+    <section id="reasons" class="section reveal" aria-labelledby="reasons-title">
+      <div class="section__head">
+        <p class="section__eyebrow">Chapter Three</p>
+        <h2 class="section__title" id="reasons-title">Reasons I Love You</h2>
+        <p class="section__subtitle">Tap a card to turn it over and read the reason inside.</p>
+      </div>
+
+      <div class="reasons" id="reasons-grid"></div>
+
+      <div class="reasons__actions">
+        <button type="button" class="btn btn--ghost" id="reveal-all-btn">Reveal all reasons</button>
+      </div>
+    </section>
+
+    <!-- ========================= SECTION E — SECRET SURPRISE ================== -->
+    <section id="surprise" class="section section--surprise reveal" aria-labelledby="surprise-title">
+      <div class="section__head">
+        <p class="section__eyebrow">Chapter Four</p>
+        <h2 class="section__title" id="surprise-title">A Secret Surprise</h2>
+        <p class="section__subtitle" id="surprise-hint">Tap the gift</p>
+      </div>
+
+      <div class="surprise">
+        <button type="button" class="gift" id="gift-btn" aria-expanded="false"
+                aria-controls="surprise-card">
+          <span class="gift__lid">
+            <span class="gift__bow" aria-hidden="true">
+              <i class="gift__bow-loop gift__bow-loop--l"></i>
+              <i class="gift__bow-loop gift__bow-loop--r"></i>
+              <i class="gift__bow-knot"></i>
+            </span>
+          </span>
+          <span class="gift__box">
+            <span class="gift__ribbon gift__ribbon--v" aria-hidden="true"></span>
+          </span>
+          <span class="visually-hidden">Open the birthday surprise</span>
+        </button>
+
+        <div class="surprise-card" id="surprise-card" hidden>
+          <div class="surprise-card__inner">
+            <p class="surprise-card__spark">✦</p>
+            <h3 class="surprise-card__title" id="surprise-message-title"></h3>
+            <p class="surprise-card__message" id="surprise-message"></p>
+            <p class="surprise-card__wish" id="surprise-wish"></p>
+            <div class="surprise-card__lilies" id="surprise-card-lilies" aria-hidden="true">
+              <img src="assets/images/lily.svg" alt="" />
+              <img src="assets/images/lily.svg" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <img src="assets/images/lily.svg" alt="" aria-hidden="true" class="site-footer__lily" id="footer-lily" />
+      <span class="site-footer__rule" aria-hidden="true"></span>
+      <p id="footer-note">Made by hand, with love, just for you.</p>
+      <p class="site-footer__tiny">Happy Birthday ♥</p>
+    </footer>
+
+  </main>
+
+  <!-- ============================ MUSIC CONTROLS ============================= -->
+  <div class="music" id="music-widget">
+    <p class="music__title">
+      <svg class="music__note" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M9 17V5.5l9-1.8V15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+        <ellipse cx="6.6" cy="17.6" rx="2.6" ry="2.1" fill="currentColor" />
+        <ellipse cx="15.6" cy="15.2" rx="2.6" ry="2.1" fill="currentColor" />
+      </svg>
+      <span id="music-title">Our Song</span>
+    </p>
+    <button type="button" class="music__toggle" id="music-toggle"
+            aria-pressed="false" aria-label="Play background music" title="Play music">
+      <svg class="music__icon music__icon--play" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M8 5.5v13l11-6.5z" fill="currentColor" />
+      </svg>
+      <svg class="music__icon music__icon--pause" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M8 5h3v14H8zM13 5h3v14h-3z" fill="currentColor" />
+      </svg>
+    </button>
+    <p class="music__toast" id="music-toast" role="status" aria-live="polite" hidden></p>
+  </div>
+
+  <!-- ============================== LIGHTBOX ================================ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true"
+       aria-label="Enlarged photo" hidden>
+    <button type="button" class="lightbox__close" id="lightbox-close" aria-label="Close photo">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"
+        fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+    </button>
+    <button type="button" class="lightbox__nav lightbox__nav--prev" id="lightbox-prev"
+            aria-label="Previous photo">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"
+        fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <figure class="lightbox__figure">
+      <img class="lightbox__img" id="lightbox-img" alt="" />
+      <figcaption class="lightbox__caption" id="lightbox-caption"></figcaption>
+    </figure>
+    <button type="button" class="lightbox__nav lightbox__nav--next" id="lightbox-next"
+            aria-label="Next photo">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"
+        fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+
+  <!-- Decorative burst container (hearts / petals / sparkles) -->
+  <div id="burst-field" class="burst-field" aria-hidden="true"></div>
+
+  <!-- Audio: never autoplays. src is set from data.js. -->
+  <audio id="bg-music" preload="none" loop></audio>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
